@@ -17,3 +17,99 @@
 //	printf("%d元总共喝了%d瓶\n", money, bottle);
 //	return 0;
 //}
+//输入一个整数数组，实现一个函数，
+//来调整该数组中数字的顺序使得数组中所有的奇数位于数组的前半部分，
+//所有偶数位于数组的后半部分。
+#include<stdio.h>
+//int main()
+//{
+//	int arr[10] = { 0 };
+//	int i = 0;
+//	int l = 0;
+//	int r = 9;
+//	for (i = 0; i < 10; i++)
+//	{
+//		scanf("%d", &arr[i]);
+//	}
+//	while (l < r)
+//	{
+//		while((l < r) && (arr[l] % 2 == 1))
+//		{
+//			l++; 
+//		}
+//		while((l < r) && (arr[r] % 2 == 0))
+//		{
+//			r--; 
+//		}
+//		if (l < r)
+//		{
+//			int tmp = arr[l];
+//			arr[l] = arr[r];
+//			arr[r] = tmp;
+//		}
+//	}
+//	for (i = 0; i < 10; i++)
+//	{
+//		printf(" %d ",arr[i]);
+//	}
+//	return 0;
+//}
+//猜数字游戏
+//#include <stdlib.h>//rand()-随机产生一个数的函数的头文件
+//#include<time.h>
+//void meun()
+//{
+//	printf("*****************\n");
+//	printf("1.play\n");
+//	printf("0.exit\n");
+//	printf("*****************\n");
+//}
+//void game()
+//{
+//	int num = 0;
+//	int ret = 0;
+//	ret = rand() % 100 + 1;//这个只能产生特定的一组数
+//	while (1)
+//	{
+//		printf("请猜数字(1-100)\n");
+//	    scanf("%d", &num);
+//		if (ret == num)
+//		{
+//			printf("恭喜你猜对了\n");
+//			break;
+//		}
+//		else if (ret < num)
+//		{
+//			printf("猜大了\n");
+//		}
+//		else
+//		{
+//			printf("猜小了\n");
+//		}
+//	}
+//}
+//int main()
+//{
+//	int i = 0;
+//	srand((unsigned int)time(NULL));
+//	do
+//	{
+//	meun();
+//	
+//		printf("请选择\n");
+//	    scanf("%d", &i);
+//		switch (i)
+//		{
+//		case 1:
+//			game();
+//		    break;
+//		case 0:
+//			printf("退出游戏\n");
+//			break;
+//		default:
+//			printf("输入错误\n");
+//			break;
+//		}
+//	} while (i);
+//	return 0;
+//}
