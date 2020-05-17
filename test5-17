@@ -1,0 +1,19 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+//喝汽水，1瓶汽水1元，2个空瓶可以换一瓶汽水，给20元，可以多少汽水（编程实现）
+#include<stdio.h>
+//int main()
+//{
+//	int money = 0;
+//	int bottle = 0;
+//	int empty = 0;
+//	scanf("%d", &money);
+//	empty = money;
+//	bottle = money;
+//	while (empty > 1)
+//	{
+//		bottle += empty / 2;
+//		empty = empty / 2 + empty % 2;
+//	}
+//	printf("%d元总共喝了%d瓶\n", money, bottle);
+//	return 0;
+//}
