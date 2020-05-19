@@ -1,0 +1,105 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+//求5！
+//int main()
+//{
+//	int i = 0;
+//	scanf("%d", &i);
+//	int j = 0;
+//	int sum = 1;
+//	for (j = 1; j <= i; j++)
+//	{
+//		
+//		sum = sum * j;
+//	}
+//	printf("%d\n", sum);
+//	return 0;
+//}
+//求1-1/2+1/3...+1/100
+//int main()
+//{
+//	double done = 1;
+//	double sum = 0;
+//	double flag = 1;
+//	while (done<=100)
+//	{
+//		sum = sum + flag*(1.0) / done;
+//		flag = -flag;
+//		done++;
+//	}
+//	printf("sum=%f\n", sum);
+//	return 0;
+//}
+////冒泡排序
+//int main()
+//{
+//	int i = 0, j = 0;
+//	int n = 0;
+//	int arr[100] = { 0 };
+//	printf("请输入你想排序的数的个数\n");
+//	scanf("%d", &n);
+//	printf("请输入要排序的数字\n");
+//	for (i = 0; i < n; i++)
+//	{
+//		scanf("%d", &arr[i]);
+//	}
+//	
+//	for (i = 0; i < n-1; i++)
+//	{
+//		for (j = 0; j < n - 1 - i; j++)
+//		{
+//			if (arr[j] > arr[j + 1])
+//			{
+//				int tmp = 0;
+//				tmp = arr[j];
+//				arr[j] = arr[j + 1];
+//				arr[j+1] = tmp;
+//
+//			}
+//		}
+//	}
+//	for (i = 0; i < n; i++)
+//	{
+//		printf(" %d ", arr[i]);
+//	}
+//	return 0;
+//}
+//求1+2+...+100
+//int main()
+//{
+//	int sum = 0;
+//	int i = 0;
+//	for (i = 1; i <= 100; i++)
+//	{
+//		sum += i;
+//	}
+//	printf("sum=%d\n", sum);
+//	return 0;
+//}
+//int main() 
+//{
+//	int num = 0;
+//	scanf("%d", &num);
+//	if ((num % 3 == 0) && (num % 5 == 0))
+//		printf("可以被三和五整除\n");
+//	else
+//		printf("不能被三和五整除\n");
+//	return 0;
+//}
+//#include<math.h>
+//int main()
+//{
+//	int i = 0;
+//	int j = 0;
+//	for (i = 101; i <=200; i +=2)
+//	{
+//		for (j = 2; j <= sqrt(i); j++)
+//		{
+//			if (i % j == 0)
+//				break;
+//		}
+//		if (j > sqrt(i))
+//			printf(" %d ", i);
+//	}
+//	return 0;
+//}
