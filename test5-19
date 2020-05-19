@@ -103,3 +103,44 @@
 //	}
 //	return 0;
 //}
+//给出一个大于或等于3的正整数，判断他是不是一个素数
+//#include<math.h>
+//int main()
+//{
+//	int i = 2;
+//	int n = 0;
+//	int flag = 0;
+//	scanf("%d", &n);
+//	while (i < sqrt(n))
+//	{
+//		if (n % i == 0)
+//			flag = 1;
+//		i++;
+//	}
+//	if (flag == 1)
+//		printf("no");
+//	else
+//		printf("yes");
+//	return 0;
+//}
+int main()
+{
+	int a = 5, b = 7;                  //定义整型变量，分配4个字节
+	float x = 67.8564, y = -789.124;   //定义单精度浮点型
+	char c = 'A';                      //定义字符变量
+	long n = 1234567;                  //定义长整型，分配4个字节
+	unsigned u = 65535;                //定义无符号基本整型
+	printf("%d,%i\n",a,b);             //d,i以带符号的十进制形式输出整数
+	printf("%3d,%3d\n", a, b);         //%3d指定输出数据占3列，输出的数据显示在3列局域右侧
+	printf("%f,%f\n", x, y);           //以小数形式输出单、双精度数，隐含输出6位小数
+	printf("%-10f,%-10f\n", x, y);     //%-10指定输出数据占10列，输出的数据显示在10列左侧
+	printf("%8.2f,%8.2f,%.4f,%.4f,%3f,%3f\n",x, y, x, y, x, y);
+	//%8.2f指定输出数据占8列，小数部分占2列 %.4指定小数部分占4列 %3f指定输出数据占3列，如果数据大于三列，直接打印
+	printf("%e,%10.2e\n", x, y);       //e，E以指数形式输出实数
+	printf("%c,%d,%o,%x\n", c, c, c, c);
+	//%c以字符形式输出，只输出一个字符 %d打印A的ASCII值 %o（%x）以八进制（十六进制）无符号形式输出整数
+	printf("%ld,%lo,%x\n", n, n, n);  //l 用于长整型整数，可加在格式符d o x u前面
+	printf("%u,%o,%x,%d\n", u, u, u, u);//%u以无符号十进制形式输出整数
+	printf("%s,%15s\n", "COMPUTER", "COMPUTER");//%s输出字符串
+	return 0;
+}
