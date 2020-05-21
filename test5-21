@@ -1,0 +1,60 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+//int main()
+//{
+//	float d1 = 0, d2 = 0, d3 = 0, d4 = 0;
+//	float x = 0, y = 0;
+//	float x1 = 2, x2 = -2, y1 = 2, y2 = -2;
+//	scanf("%f %f", &x, &y);
+//	d1 = (x - x1) * (x - x1) + (y - y1) * (y - y1);
+//	d2 = (x - x1) * (x - x1) + (y - y2) * (y - y2);
+//	d3 = (x - x2) * (x - x2) + (y - y1) * (y - y1);
+//	d4 = (x - x2) * (x - x2) + (y - y2) * (y - y2);
+//	if (d1 > 1 && d2 > 1 && d3 > 1 && d4 > 1)
+//	{
+//		printf("%d\n", 0);
+//	}
+//	else
+//		printf("%d\n", 10);
+//	return 0;
+//}
+//int main()
+//{
+//	float sum = 0;
+//	float pay = 0;
+//	int i = -1;
+//	while (pay != -1)
+//	{
+//		i++;
+//		sum += pay;
+//		scanf("%f", &pay);
+//	}
+//	float aver = sum / i;
+//	printf("平均工资为：%f\n", aver);
+//	return 0;
+//}
+int main()
+{
+	int i = 0;
+	int group = 1;
+	for (i = 1; i <= 3; i++)
+	{
+		float aver = 0;
+		float sum = 0;
+		float pay = 0;
+		int j = -1;
+		printf("------------\n");
+		while (pay != -1)
+		{
+			j++;
+			sum += pay;
+			scanf("%f", &pay);
+		}
+		aver = sum / j;
+		printf("第%d组数据:\n", group);
+		group++;
+		printf("%.2f\n",aver);
+		
+	}
+	return 0;
+}
