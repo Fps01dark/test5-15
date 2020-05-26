@@ -1,0 +1,54 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+//求1！+2！+...+20！
+//int main()
+//{
+//	double sum = 0;
+//	int i = 0;
+//	double t = 1;
+//	for (i = 1; i <= 20; i++)
+//	{
+//		t = t * i;
+//		sum = sum + t;
+//	}
+//	printf("%f", sum);
+//	return 0;
+//}
+//用函数递归求n！
+//long fac(int x)
+//{
+//	long f = 0;
+//	if (x < 0)
+//		printf("输入错误");
+//	else if (x == 0 || x == 1)
+//		f = 1;
+//	else
+//		f = fac(x - 1) * x;
+//	return f;
+//}
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	long y = fac(n);
+//	printf("%d!=%ld", n, y);
+//	return 0;
+//}
+//判断整数m是否为素数
+//#include<math.h>
+//int main()
+//{
+//	int m = 0;
+//	scanf("%d", &m);
+//	int i = 0;
+//	for (i = 2; i <= sqrt(m); i++)
+//	{
+//		if (m % i == 0)
+//			break;
+//	}
+//	if (i > sqrt(m))
+//		printf("yes!");
+//	else
+//		printf("no！");
+//	return 0;
+//}
