@@ -1,0 +1,52 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+//int main()
+//{
+//	int c1 = 97, c2 = 98;
+//	printf("c1=%c c2=%c\n", c1, c2);
+//	printf("c1=%d c2=%d\n", c1, c2);
+//	return 0;
+//}
+//int main()
+//{
+//	int a = 0, b = 0;
+//	float x = 0.0, y = 0.0;
+//	char c1 = { 0 }, c2 = { 0 };
+//	scanf("a=%d b=%d", &a, &b);//应该按这种方法输入
+//	scanf("%f %f", &x, &y);    //a=3 b=7回车
+//	scanf("%c %c", &c1, &c2);  //8.5 71.82A a-注意数字输入完之后不要有空格
+//	//系统遇见A是就确定输入给y的值已经结束
+//	printf(" a=%d b=%d ", a, b);
+//	printf(" x=%f b=%f ", x, y);
+//	printf(" c1=%c c2=%c ", c1, c2);
+//	return 0;
+//}
+//int main()
+//{
+//	char arr[] = "China";
+//	int i = 0;
+//	for (i = 0; i < 5; i++)
+//	{
+//		arr[i] = arr[i] + 4;
+//	}
+//	printf("%s\n", arr);
+//	return 0;
+//}
+//int main()
+//{
+//	float r = 0;
+//	float h = 0;
+//	printf("请输入半径和高\n");
+//	scanf("%f %f", &r, &h);
+//	float a = 2 * 3.14 * r;
+//	printf("圆周长：%.2f\n", a);
+//	a = 3.14 * r * r;
+//	printf("圆的面积：%.2f\n", a);
+//	a = 4 * 3.14 * r * r;
+//	printf("圆球的表面积：%.2f\n", a);
+//	a = 3.0 / 4.0 * 3.14 * r * r * r;
+//	printf("圆球的体积：%.2f\n", a);
+//	a = 3.14 * r * r * h;
+//	printf("圆柱体体积：%.2f\n", a);
+//	return 0;
+//}
