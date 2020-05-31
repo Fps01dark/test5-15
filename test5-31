@@ -1,0 +1,98 @@
+#define _CRT_SECURE_NO_WARNINGS  
+#include<stdio.h>
+//int main()
+//{
+//	int x = 0, y = 0;
+//	scanf("%d", &x);
+//	y = -1;
+//	if (x != 0)
+//	{
+//		if (x > 1)
+//			y = 1;
+//	}
+//	else
+//		y = 0;
+//	printf("x=%d y=%d\n", x, y);
+//	return 0;
+////}
+//#include<math.h>
+//int main()
+//{
+//	double a = 0, b = 0, c = 0;
+//	double x1 = 0.0, x2 = 0.0;
+//	scanf("%lf %lf %lf", &a, &b, &c);
+//	if (a != 0)
+//	{
+//		if (b * b - 4 * a * c > 0)
+//		{
+//			printf("有两个不同的实根\n");
+//			x1 = (-b + sqrt(b * b - 4 * a * c)) / (2 * a);
+//			x2 = (-b - sqrt(b * b - 4 * a * c)) / (2 * a);
+//			printf("x1=%.2lf x2=%.2lf\n", x1, x2);
+//		}
+//		if (b * b - 4 * a * c == 0)
+//		{
+//			printf("有两个相同的实根\n");
+//			x1 = (-b + sqrt(b * b - 4 * a * c)) / (2 * a);
+//			x2 = (-b - sqrt(b * b - 4 * a * c)) / (2 * a);
+//			printf("x1=%.2lf x2=%.2lf\n", x1, x2);
+//		}
+//		if (b * b - 4 * a * c < 0)
+//		{
+//			printf("方程有两个共轭复根\n");
+//		}
+//	}
+//	else
+//		printf("不是一元二次方程");
+//	return 0;
+//}
+// int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	if (n <= 100 && n >= 90)
+//		printf("A");
+//	else if (n < 90 && n >= 80)
+//		printf("B");
+//	else if (n < 80 && n >= 70)
+//		printf("C");
+//	else if (n < 70 && n >= 60)
+//		printf("D");
+//	else if (n < 60 && n >= 0)
+//		printf("E");
+//	else
+//		printf("输入错误\n");
+//	return 0;
+//}
+int main()
+{
+	int num = 0;
+	int count = 1;
+	scanf("%d", &num);
+	int n = num;
+	while (num / 10)
+	{
+		num = num / 10;
+		count++;
+	}
+	printf("他是%d位数\n", count);
+	int i = count;
+	int arr[2020] = { 0 };
+	int j = 0;
+	while (n / 10)
+	{
+		printf("它的第%d位是：%d\n", i, n % 10);
+		arr[j] = n % 10;
+		n = n / 10;
+		i--;
+		j++;
+	}
+	printf("它的第%d位是：%d\n", i, n);
+	arr[count - 1] = n;
+	for (j = 0; j < count; j++)
+	{
+		printf("%d", arr[j]);
+	}
+	return 0;
+}
+	
