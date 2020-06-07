@@ -1,0 +1,77 @@
+#define _CRT_SECURE_NO_WARNINGS
+//求两个数的最大公约数和最小公倍数
+//int mul(int a,int b)
+//{
+//	int div(int x,int y);
+//	int c = div(a, b);
+//	return ((a / c)*(b / c)*c);
+//}
+//int div(int x,int y)
+//{
+//	int z = 0;
+//	int tmp = 0;
+//	if (x < y)
+//	{
+//		tmp = x;
+//		x = y;
+//		y = tmp;
+//	}
+//	while (x%y)
+//	{
+//		z = x%y;
+//		x = y;
+//		y = z;
+//	}
+//	return y;
+//}
+//int main()
+//{
+//	int x = 0, y = 0;
+//	scanf("%d %d", &x, &y);
+//	printf("最小公倍数：%d\n", mul(x, y));
+//	printf("最大公因数：%d\n", div(x, y));
+//	return 0;
+//}
+#include<math.h>
+#include<stdio.h>
+double x1 = 0, x2 = 0;
+double disc = 0;
+double p = 0, q = 0;
+void greater(double a,double b)
+{
+	x1 = (-b + sqrt(disc)) / 2 * a;
+	x2 = (-b - sqrt(disc)) / 2 * a;
+}
+void equal(double a, double b)
+{
+	x1 = (-b ) / 2 * a;
+	x2 = (-b ) / 2 * a;
+}
+void smaller(double a, double b)
+{
+	p = (-b) / 2 * a;
+	q = sqrt(-disc) / 2 * a;
+}
+int main()
+
+{
+	double a = 0, b = 0, c = 0;
+	scanf("%lf %lf %lf", &a, &b, &c);
+	disc = b*b - 4.0* a*c;
+	if (disc > 0)
+	{
+		greater(a, b);
+		printf("x1=%.2lf x2=%.2lf", x1, x2);
+	}
+	else if (disc == 0)
+	{
+		equal(a, b);
+		printf("x1=%.2lf x2=%.2lf", x1, x2);
+	}
+	else
+	{
+		smaller(a, b);
+		printf("x1=%.2lf+%.2lfi/t x2=%.2lf-%.2lfi/n", p,q,p,q);
+	}
+	return 0;
+}
