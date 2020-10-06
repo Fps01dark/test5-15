@@ -1,0 +1,12 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+int main()
+{
+	int a = 10;
+	int *pa = &a;
+	printf("%d\n", a);   
+	printf("%d\n", *pa);  //对指针pa进行解引用操作，指向的是a里面的内容
+	printf("%p\n", pa);
+	printf("%p\n", &a);
+	return 0;
+}
