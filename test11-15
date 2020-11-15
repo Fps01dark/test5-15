@@ -1,0 +1,459 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+#include<string.h>
+using namespace std;
+class STR;
+ostream& operator<<(ostream& out, STR &ss);
+class STR
+{
+public:
+	STR(char *str="") //构造函数
+	{
+		m_p = new char[strlen(str) + 1];
+		strcpy(m_p, str);
+	}
+	STR(STR &ss) //复制构造函数
+	{
+		m_p = new char[strlen(ss.m_p) + 1];
+		strcpy(m_p, ss.m_p);
+	}
+	STR& operator=(STR &ss) //赋值运算符重载
+	{
+		//先把s4的释放，再将s1的值传递给它
+		delete[]m_p;
+		m_p = new char[strlen(ss.m_p) + 1];
+		strcpy(m_p, ss.m_p);
+		return *this;
+	}
+	friend ostream& operator<<(ostream& out,STR &ss); // << 运算符只能作为STR的友元函数
+	STR operator+(STR&b)
+	{
+		char*temp = new char[strlen(m_p) + strlen(b.m_p) + 1];
+		strcpy(temp, m_p);
+		strcat(temp,b.m_p );
+		STR a(temp);
+		delete[]temp;
+		return a;
+	}
+	~STR() //析构函数
+	{
+		if (m_p != NULL)
+		{
+			delete[]m_p;
+			m_p = NULL;
+		}
+	}
+	//void print()
+	//{
+	//	cout << m_p << endl;
+	//}
+private:
+	char *m_p;
+};
+ostream& operator<<(ostream& outs, STR &ss)
+{
+	outs << ss.m_p;
+	return outs;
+}
+void main()
+{
+	STR s1("abc"); //调用构造函数
+	STR s2("def");
+	STR s3 = s2;  //调用复制构造函数
+	STR s4;
+	s4 = s1; //调用赋值运算符重载函数
+	cout << s4 << endl; //输出运算符重载
+	s4 = s1 + s2; //+运算符重载和赋值运算符重载
+	cout << s4 << endl;
+	system("pause");
+}//#include<iostream>
+//using namespace std;
+//char map[8][9] =
+//{
+//	" #####  ", //有/0
+//	" #P ### ",
+//	" # X  # ",
+//	"### # ##",
+//	"#O# #  #",
+//	"#OX  # #",
+//	"#O   X #",
+//	"########"
+//};//#障碍物 O目的地 X箱子 P小人
+//int success()
+//{
+//	int suc = 0;
+//	if (map[5][1] == 'X'&&map[6][1] == 'X'&& map[4][1] == 'X')
+//		suc = 1;
+//	return suc;
+//}
+//void menu()
+//{
+//	cout << "        游戏规则        " << endl;
+//	cout << "  1.W-上 S-下 A-左 D-右 " << endl;
+//	cout << "  2.Q-退出              " << endl;
+//}
+//void showmap()
+//{
+//	for (int i = 0; i < 8; i++)
+//	{
+//		for (int j = 0; j < 9; j++)
+//		{
+//			cout << map[i][j];
+//		}
+//		cout << endl;
+//	}
+//}
+//int inputdirection()
+//{
+//	char temp = ' ';
+//	cin >> temp;
+//	return temp;
+//}
+//void main()
+//{
+//	void movetoup();
+//	void movetodown();
+//	void movetoleft();
+//	void movetoright();
+//	int flag = 1;
+//	while (flag)
+//	{
+//		system("cls");
+//		menu();
+//		showmap();
+//		if (success())
+//		{
+//			cout << "恭喜你过关！" << endl;
+//			break;
+//		}
+//		char direction = inputdirection();
+//		switch (direction)
+//		{
+//		case 'w':
+//		case 'W':
+//			movetoup();
+//			break;
+//		case'a':
+//		case'A':
+//			movetoleft();
+//			break;
+//		case'd':
+//		case'D':
+//			movetoright();
+//			break;
+//		case 's':
+//		case'S':
+//			movetodown();
+//			break;
+//		case'q':
+//		case'Q':
+//			cout << "已退出" << endl;
+//			flag = 0;
+//			break;
+//		}
+//	}
+//	system("pause");
+//}
+//int cpr = 1;
+//int cpl = 2;
+//void movetoup() //向上移动
+//{
+//	int npr = cpr - 1;
+//	int npl = cpl;
+//	if (map[npr][npl] == ' ')
+//	{
+//		map[npr][npl] = 'P';
+//		map[cpr][cpl] = ' ';
+//		cpr = npr;
+//		cpl = npl;
+//	}
+//	else if (map[npr][npl] == 'X')
+//	{
+//		int nbr = npr - 1;
+//		int nbl = npl;
+//		if (map[nbr][nbl] == ' ' || map[nbr][nbl] == 'O')
+//		{
+//			map[nbr][nbl] = 'X';
+//			map[npr][npl] = 'P';
+//			map[cpr][cpl] = ' ';
+//			cpr = npr;
+//			cpl = npl;
+//		}
+//	}
+//	else if (map[npr][npl] == 'O')
+//	{
+//		map[npr][npl] = 'P';
+//		map[cpr][cpl] = ' ';
+//		cpr = npr;
+//		cpl = npl;
+//	}
+//}
+//void movetodown() //向下移动
+//{
+//	int npr = cpr + 1;
+//	int npl = cpl;
+//	if (map[npr][npl] == ' ')
+//	{
+//		map[npr][npl] = 'P';
+//		map[cpr][cpl] = ' ';
+//		cpr = npr;
+//		cpl = npl;
+//	}
+//	else if (map[npr][npl] == 'X')
+//	{
+//		int nbr = npr + 1;
+//		int nbl = npl;
+//		if (map[nbr][nbl] == ' ' || map[nbr][nbl] == 'O')
+//		{
+//			map[nbr][nbl] = 'X';
+//			map[npr][npl] = 'P';
+//			map[cpr][cpl] = ' ';
+//			cpr = npr;
+//			cpl = npl;
+//		}
+//	}
+//	else if (map[npr][npl] == 'O')
+//	{
+//		map[npr][npl] = 'P';
+//		map[cpr][cpl] = ' ';
+//		cpr = npr;
+//		cpl = npl;
+//	}
+//}
+//void movetoleft() //向左移动
+//{
+//	int npr = cpr;
+//	int npl = cpl - 1;
+//	if (map[npr][npl] == ' ')
+//	{
+//		map[npr][npl] = 'P';
+//		map[cpr][cpl] = ' ';
+//		cpr = npr;
+//		cpl = npl;
+//	}
+//	else if (map[npr][npl] == 'X')
+//	{
+//		int nbr = npr;
+//		int nbl = npl - 1;
+//		if (map[nbr][nbl] == ' ' || map[nbr][nbl] == 'O')
+//		{
+//			map[nbr][nbl] = 'X';
+//			map[npr][npl] = 'P';
+//			map[cpr][cpl] = ' ';
+//			cpr = npr;
+//			cpl = npl;
+//		}
+//	}
+//	else if (map[npr][npl] == 'O')
+//	{
+//		map[npr][npl] = 'P';
+//		map[cpr][cpl] = ' ';
+//		cpr = npr;
+//		cpl = npl;
+//	}
+//}
+//void movetoright() //向右移动
+//{
+//	int npr = cpr;
+//	int npl = cpl + 1;
+//	if (map[npr][npl] == ' ')
+//	{
+//		map[npr][npl] = 'P';
+//		map[cpr][cpl] = ' ';
+//		cpr = npr;
+//		cpl = npl;
+//	}
+//	else if (map[npr][npl] == 'X')
+//	{
+//		int nbr = npr;
+//		int nbl = npl + 1;
+//		if (map[nbr][nbl] == ' ' || map[nbr][nbl] == 'O')
+//		{
+//			map[nbr][nbl] = 'X';
+//			map[npr][npl] = 'P';
+//			map[cpr][cpl] = ' ';
+//			cpr = npr;
+//			cpl = npl;
+//		}
+//	}
+//	else if (map[npr][npl] == 'O')
+//	{
+//		map[npr][npl] = 'P';
+//		map[cpr][cpl] = ' ';
+//		cpr = npr;
+//		cpl = npl;
+//	}
+//}
+//
+//#define _CRT_SECURE_NO_WARNINGS
+//#include<iostream>
+//using namespace std;
+//class volume
+//{
+//public:
+//	void scan()
+//	{
+//		cin >> m_length >> m_width >> m_height;
+//	}
+//	int print(int i)
+//	{
+//		cout<<"第"<<i+1<<"个长方柱的体积为："<< m_length*m_width*m_height << endl;
+//		return 0;
+//	}
+//	void fr()
+//	{
+//		for (int i = 0; i < 3; i++)
+//		{
+//			scan();
+//			print(i);
+//		}
+//	}
+//private:
+//	int m_length;
+//	int m_width;
+//	int m_height;
+//};
+//void main(void)
+//{
+//	volume Rec;
+//	Rec.fr();
+//	system("pause");
+//}
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+using namespace std;
+#include<string.h>
+class student
+{
+public:
+	student(int num = 0, char *name=" ",float score = 0) :m_num(num), m_score(score)
+	{
+		m_name = new char[strlen(name) + 1];
+		strcpy(m_name, name);
+	}
+	~student()
+	{
+		if (m_name != NULL)
+		{
+			delete[]m_name;
+			m_name = NULL;
+		}
+	}
+	void print()
+	{
+		cout << "学号：" << m_num << " 姓名：" << m_name << " 成绩：" << m_score << endl;
+	}
+private:
+	int m_num;
+	char*m_name;
+	float m_score;
+};
+class graduate :public student
+{
+public:
+	graduate(int num = 0, char *name = "", float score = 0, float wage = 0) :student(num,name,score), m_wage(wage)
+	{
+
+	}
+	void print()
+	{
+		cout << " 津贴：" << m_wage << endl;
+	}
+private:
+	float m_wage;
+};
+void main()
+{
+	student stud1(1001, "li", 87.5);
+	//student *p = &stud1;
+	stud1.print();
+	//p->print();
+	graduate grad1(1002, "zhang", 85, 1000);
+	grad1.print();
+	system("pause");
+}//#define _CRT_SECURE_NO_WARNINGS
+//#include<iostream>
+//using namespace std;
+//#include<string.h>
+//class animal
+//{
+//public:
+//	animal(int age = 0, int quality = 0) :m_age(age), m_quality(quality)
+//	{
+//
+//	}
+//	int m_age;
+//	int m_quality;
+//};
+//class cat :public animal
+//{
+//public:
+//	cat(char*color="", char*food="", int age = 0, int quality = 0) :animal(age, quality)
+//	{
+//		m_color =new char[strlen(color)+1];
+//		strcpy(m_color, color);
+//		m_food = new char[strlen(food) + 1];
+//		strcpy(m_food, food);
+//	}
+//	void print()
+//	{
+//		cout << m_color << " " << m_food << " " << m_age << " " << m_quality << endl;
+//	}
+//	~cat()
+//	{
+//		if (m_color != NULL)
+//			delete[]m_color;
+//		if (m_food != NULL)
+//			delete[]m_food;
+//	}
+//private:
+//	char *m_color;
+//	char *m_food;
+//};
+//void main()
+//{
+//	cat c1("黄色","鱼",10,10);
+//	c1.print();
+//	system("pause");
+//}//#define _CRT_SECURE_NO_WARNINGS
+//#include<iostream>
+//using namespace std;
+//void swap(int a ,int b) //a和b的值交换了，num1和num2的值没有交换，无法执行交换
+//{
+//	int temp = a;
+//	a = b;
+//	b = temp;
+//
+//}
+//void swap2(int*a, int*b) 
+//{
+//	int temp = *a;
+//	*a = *b;
+//	*b = temp;
+//}
+//void swap3(int*a, int*b) //a和b的地址换了，但num1和num2的地址没变，无法执行交换
+//{
+//	int *temp = a;
+//	a = b;
+//	b = temp;
+//}
+//void swap4(int &a, int &b) //num1和num2的别名分别是a和b，对a和b进行操作相当于对num1和num2进行操作
+//{
+//	int temp = a;
+//	a = b;
+//	b = temp;
+//}
+//void main()
+//{
+//	int num1 = 10;
+//	int num2 = 20;
+//    swap(num1, num2);
+//	cout << num1 << " " <<  num2 << endl;
+//	int *pnum1 = &num1;
+//	int *pnum2 = &num2;
+//	swap2(pnum1, pnum2);
+//	cout << *pnum1 << " " << *pnum2 << endl;
+//	swap4(num1, num2);
+//	cout << *pnum1 << " " << *pnum2 << endl;
+//	system("pause");
+//}
