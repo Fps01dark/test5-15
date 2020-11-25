@@ -1,0 +1,96 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+#include<vector>  //开辟动态数组
+#include<algorithm> //算法
+using namespace std;
+void swap(int &a, int &b) //交換兩個變數
+{
+	int temp = a;
+	a = b;
+	b = temp;
+}
+void sort1(int *arr,int n) //冒泡排序
+{
+	int i = 0, j = 0;
+	int temp = 0;
+	for (i = 0; i < n - 1; i++)
+	{
+		for (j = 0; j < n - i - 1; j++)
+		{
+			if (arr[j]>arr[j + 1])
+			{
+				swap(arr[j], arr[j + 1]);
+			}
+		}
+	}
+}
+void sort2(int arr[], int n) //选择排序
+{
+	int i, j;
+	for (i = 0; i < n - 1; i++)
+	{
+		int min = i;
+		for (j = i + 1; j < n; j++)     //走訪未排序的元素
+		if (arr[j] < arr[min])    //找到目前最小值
+			min = j;   
+		swap(arr[min], arr[i]);    //做交換
+	}
+}
+//void main() //非动态数组
+//{
+//	int arr[10] = { 0 };
+//	cout << "请输入10个数：" ;
+//	for (int i = 0; i < 10; i++)
+//	{
+//		cin >> arr[i];
+//	}
+//	int n = sizeof(arr) / sizeof(arr[0]);
+//	//sort1(arr,n);
+//	//sort2(arr,n);
+//	//sort(arr, arr + n); //头文件algorithm的sort函数（快排）默认从小到大
+//	cout << "从小到大：";
+//	for (int i = 0; i < 10; i++)
+//	{
+//		cout<< arr[i]<<" ";
+//	}
+//	system("pause");
+//}
+//void main() //动态数组创建
+//{
+//	vector <int> nums;
+//	for (int temp = 0; cin >> temp;)
+//	{
+//		nums.push_back(temp);
+//		if (cin.get() == '\n')
+//			break;
+//	}
+//	cout << "输入元素的个数：" << nums.size() << endl;
+//	for (int i = 0; i < nums.size(); i++)
+//	{
+//		cout << nums[i] << " ";
+//	}
+//	system("pause");
+//}
+void main() //动态数组
+{
+	int n = 0;
+	cout << "请输入你要输入的元素个数：" << endl;
+	cin >> n;
+	int *p_arr = new int[n];
+	cout << "请输入你要输入的元素：" << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> p_arr[i]; //*p_arr+i
+	}
+	//sort1(p_arr, n);
+	//sort2(p_arr, n);
+	//sort(p_arr, p_arr + n);
+	cout << "排序后："<<endl;
+	for (int i = 0; i < n; i++)
+	{
+		cout<< p_arr[i]<<" "; //*p_arr+i
+	}
+	delete[]p_arr;
+	p_arr = NULL;
+	system("pause");
+}
