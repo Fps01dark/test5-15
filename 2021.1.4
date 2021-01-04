@@ -1,0 +1,202 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+using namespace std;
+//1.写一个函数将当前数组中最大的元素找出来
+//int Max(int arr[])
+//{
+//	int max = 0;
+//	for (int i = 0; i < 10 - 1; i++)
+//	{
+//		if (arr[max]<arr[i])
+//			max = i;
+//	}
+//	return arr[max];
+//}
+//void main()
+//{
+//	int arr[10];
+//	for (int i = 0; i < 10; i++)
+//	{
+//		cin >> arr[i];
+//	}
+//	cout << "最大的数：" << Max(arr) << endl;
+//	system("pause");
+//}
+//2.将数组进行逆序
+//void main()
+//{
+//	int a[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//    int temp[10];
+//	int t = 9;
+//	cout << "逆序前：" << endl;
+//	for (int i = 0; i < 10; i++)
+//	{
+//		cout << a[i] << " ";
+//		temp[t] = a[i];
+//		t--;
+//	}
+//	cout << endl;
+//	for (int i = 0; i < 10; i++)
+//	{
+//		a[i] = temp[i];
+//	}
+//	cout << "逆序后：" << endl;
+//	for (int i = 0; i < 10; i++)
+//	{
+//		cout << a[i] << " ";
+//	}
+//	cout << endl;
+//	system("pause");
+//}
+//3.素数
+//void main()
+//{
+//	for (int i = 100; i < 200; i++)
+//	{
+//		for (int j = 2; j < i; j++)
+//		{
+//			if (i%j == 0)
+//			{
+//				break;
+//			}
+//			if (j == i-1)
+//			{
+//				cout << i << " ";
+//			}
+//		}
+//	}
+//	system("pause");
+//}
+//4.形状类
+//class shape
+//{
+//public:
+//	virtual void area() = 0;
+//	virtual void perimeter() = 0;
+//};
+//class rectangle :public shape
+//{
+//private:
+//	int width;
+//	int longth;
+//public:
+//	rectangle(int m_width = 0, int m_longth = 0) :width(m_width), longth(m_longth)
+//	{
+//
+//	}
+//	virtual void area()
+//	{
+//		cout << width*longth << endl;
+//	}
+//	virtual void perimeter()
+//	{
+//		cout << 2 * (width + longth) << endl;
+//	}
+//};
+//class circle :public shape
+//{
+//private:
+//	int r;
+//public:
+//	circle(int m_r = 0) :r(m_r)
+//	{
+//
+//	}
+//	virtual void area()
+//	{
+//		cout << 3.14*r*r << endl;
+//	}
+//	virtual void perimeter()
+//	{
+//		cout << 2 * 3.14*r << endl;
+//	}
+//};
+//class triangle :public shape
+//{
+//private:
+//	int edge;
+//public:
+//	triangle(int m_edge = 0) :edge(m_edge)
+//	{
+//
+//	}
+//	virtual void area()
+//	{
+//		cout << sqrt(3.0) / 4 * edge*edge << endl;
+//	}
+//	virtual void perimeter()
+//	{
+//		cout << 3 * edge << endl;
+//	}
+//};
+//void main()
+//{
+//	rectangle re(4, 5);
+//	circle ci(4);
+//	triangle tr(5);
+//	shape*p[3] = { &re, &ci, &tr };
+//	for (int i = 0; i < 3; i++)
+//	{
+//		p[i]->area();
+//		p[i]->perimeter();
+//	}
+//	system("pause");
+//}
+//5.冒泡排序 选择排序
+//void sort1(int arr[],int len) //冒泡排序
+//{
+//	for (int i = 0; i < len - 1; i++)
+//	{
+//		for (int j = 0; j < len - 1 - i; j++)
+//		{
+//			if (arr[j]>arr[j+1])
+//			{
+//				int temp = arr[j];
+//				arr[j] = arr[j+1];
+//				arr[j+1] = temp;
+//			}
+//		}
+//	}
+//}
+//void sort2(int arr[],int len)
+//{
+//	for (int i = 0; i < len - 1; i++)
+//	{
+//		int min = i;
+//		int j = 0;
+//		for (j = 0; j < len; j++)
+//		{
+//			if (arr[min]>arr[j])
+//				min = j;
+//		}
+//		int temp = arr[min];
+//		arr[min] = arr[j];
+//		arr[j] = temp;
+//	}
+//}
+//void main()
+//{
+//	int n = 0;
+//	cout << "请输入你要输入元素的个数：" << endl;
+//	cin >> n;
+//	int *p = new int[n];
+//	cout << "请输入你要输入的元素：" << endl;
+//	for (int i = 0; i < n; i++)
+//	{
+//		cin >> p[i];
+//	}
+//	cout << "排序前：" << endl;
+//	for (int i = 0; i < n; i++)
+//	{
+//		cout<<p[i]<<" ";
+//	}
+//	cout << endl;
+//	sort2(p, n);
+//	cout << "排序后：" << endl;
+//	for (int i = 0; i < n; i++)
+//	{
+//		cout << p[i] << " ";
+//	}
+//	cout << endl;
+//	system("pause");
+//}
