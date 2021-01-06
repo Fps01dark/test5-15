@@ -1,0 +1,20 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+using namespace std;
+void main()
+{
+	const int n = 10;
+	cout << n << endl;
+	//n = 20;  错误
+	int arr[n] = { 0 };  //常量
+	system("pause");
+}
+#include<stdio.h>
+void main()
+{
+	const int n = 10;
+	printf("%d", n);
+//	n = 20;  错误
+//	int arr[n] = { 0 }; 只读变量 
+	system("pause");
+}
